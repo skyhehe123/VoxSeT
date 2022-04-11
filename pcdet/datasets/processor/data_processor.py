@@ -132,7 +132,7 @@ class DataProcessor(object):
 
         points = data_dict['points']
 
-        if config.MAX_POINTS_PER_VOXEL:
+        if config.MAX_POINTS_PER_VOXEL == -1:
             return data_dict
         
         voxel_output = self.voxel_generator.generate(points)
