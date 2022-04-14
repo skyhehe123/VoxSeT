@@ -30,7 +30,7 @@ Transformer has demonstrated promising performance in many 2D vision tasks. Howe
 
 ```shell
 pip install -r requirement.txt
-python setup.py build_dist --inplace 
+python setup.py build_ext --inplace 
 ```
 The [torch_scatter](https://github.com/rusty1s/pytorch_scatter) package is required
 
