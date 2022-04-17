@@ -10,7 +10,7 @@ This project is built on [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).
 The performance of VoxSeT (single-stage, single-frame) on Waymo valdation split are as follows. 
 
 |         |  % Training | Car AP/APH | Ped AP/APH | Cyc AP/APH  | Log file |
-|---------|--------|--------|--------|--------|--------|
+|---------|:-:|--------|--------|--------|--------|
 |  Level 1 | 20%  |   72.10/71.59 | 77.94/69.58  |  69.88/68.54  | [Download](https://drive.google.com/file/d/1bsq2Fihz7EdnZdJYVhfr6bL8gx_Vz0Rd/view?usp=sharing)
 |  Level 2 | 20%  |   63.62/63.17 | 70.20/62.51  |  67.31/66.02  |
 |  Level 1 | 100% |   74.50/74.03 | 80.03/72.42  |  71.56/70.29  | [Download](https://drive.google.com/file/d/1yYM5Qsy1EnbTTLDyn_vF0X3va26yYDuN/view?usp=sharing)
