@@ -25,7 +25,7 @@ Transformer has demonstrated promising performance in many 2D vision tasks. Howe
 
 - Linux (tested on Ubuntu 16.04)
 - Python 3.7
-- PyTorch 1.4 or higher (tested on PyTorch 1.10.1)
+- PyTorch 1.9 or higher (tested on PyTorch 1.10.1)
 - CUDA 9.0 or higher (tested on CUDA 10.2)
 
 ### 2. Set the Environment
