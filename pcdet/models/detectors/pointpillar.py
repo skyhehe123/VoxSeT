@@ -5,11 +5,13 @@ class PointPillar(Detector3DTemplate):
     def __init__(self, model_cfg, num_class, dataset):
         super().__init__(model_cfg=model_cfg, num_class=num_class, dataset=dataset)
         self.module_list = self.build_networks()
+        
 
     def forward(self, batch_dict):
         for cur_module in self.module_list:
+            if cur_module.__class__.__name__== 'PointHeadSimple' and not self.training:
+                continue
             batch_dict = cur_module(batch_dict)
-
         if self.training:
             loss, tb_dict, disp_dict = self.get_training_loss()
 
@@ -23,11 +25,15 @@ class PointPillar(Detector3DTemplate):
 
     def get_training_loss(self):
         disp_dict = {}
+        
         loss_rpn, tb_dict = self.dense_head.get_loss()
         tb_dict = {
             'loss_rpn': loss_rpn.item(),
             **tb_dict
         }
-
-        loss = loss_rpn
+        if self.point_head is not None:
+            loss_point, tb_dict = self.point_head.get_loss(tb_dict)
+            loss = loss_rpn + loss_point
+        else:
+            loss = loss_rpn
         return loss, tb_dict, disp_dict
