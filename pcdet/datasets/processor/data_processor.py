@@ -174,11 +174,11 @@ class DataProcessor(object):
                 choice = np.random.choice(choice, num_points, replace=False)
             np.random.shuffle(choice)
         else:
-            assert max_num >= len(points)
+            assert num_points >= len(points)
             choice = np.arange(0, len(points), dtype=np.int32)
-            cycle = max_num // len(points)
+            cycle = num_points // len(points)
 
-            extra_choice = np.random.choice(choice, max_num - cycle * len(points), replace=False)
+            extra_choice = np.random.choice(choice, num_points - cycle * len(points), replace=False)
             choice = np.concatenate([choice]*cycle + [extra_choice], axis=0)
             np.random.shuffle(choice)
             
