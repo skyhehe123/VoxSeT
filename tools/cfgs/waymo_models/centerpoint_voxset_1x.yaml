@@ -2,7 +2,7 @@ CLASS_NAMES: ['Vehicle', 'Pedestrian', 'Cyclist']
 
 DATA_CONFIG:
     _BASE_CONFIG_: cfgs/dataset_configs/waymo_dataset.yaml
-    NUM_SWEEPS: 3
+    NUM_SWEEPS: 1
     POINT_CLOUD_RANGE: [-74.24, -74.24, -2, 74.24, 74.24, 4.0]
     DATA_PROCESSOR:
         -   NAME: mask_points_and_boxes_outside_range
