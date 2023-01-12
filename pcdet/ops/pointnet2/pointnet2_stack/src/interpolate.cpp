@@ -7,7 +7,6 @@ All Rights Reserved 2019-2020.
 
 #include <torch/serialize/tensor.h>
 #include <vector>
-#include <THC/THC.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,7 +14,7 @@ All Rights Reserved 2019-2020.
 #include <cuda_runtime_api.h>
 #include "interpolate_gpu.h"
 
-extern THCState *state;
+//extern THCState *state;
 
 #define CHECK_CUDA(x) do { \
   if (!x.type().is_cuda()) { \
