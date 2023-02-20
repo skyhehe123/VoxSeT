@@ -80,21 +80,26 @@ class VoxSeT(VFETemplate):
         points_offsets = points[:, 1:4] - self.point_cloud_range[:, :3]
         
         
+        min_tensor = points.new_tensor([0, 0, 0])
         coords01x = points[:, :4].clone()
         coords01x[:, 1:4] = points_offsets // self.voxel_size
+        coords01x[:, 1:4] = torch.clamp(coords01x[:, 1:4], min_tensor, points.new_tensor(self.grid_size) - 1)  # limit range
         pe_raw = (points_offsets - coords01x[:, 1:4] * self.voxel_size  ) / self.voxel_size
         coords01x, inverse01x = torch.unique(coords01x, return_inverse=True, dim=0)
 
         coords02x = points[:, :4].clone()
         coords02x[:, 1:4] = points_offsets // self.voxel_size_02x
+        coords02x[:, 1:4] = torch.clamp(coords02x[:, 1:4], min_tensor, points.new_tensor(self.grid_size_02x) - 1)  # limit range
         coords02x, inverse02x = torch.unique(coords02x, return_inverse=True, dim=0)
       
         coords04x = points[:, :4].clone()
         coords04x[:, 1:4] = points_offsets // self.voxel_size_04x
+        coords04x[:, 1:4] = torch.clamp(coords04x[:, 1:4], min_tensor, points.new_tensor(self.grid_size_04x) - 1)  # limit range
         coords04x, inverse04x = torch.unique(coords04x, return_inverse=True, dim=0)
 
         coords08x = points[:, :4].clone()
         coords08x[:, 1:4] = points_offsets // self.voxel_size_08x
+        coords08x[:, 1:4] = torch.clamp(coords08x[:, 1:4], min_tensor, points.new_tensor(self.grid_size_08x) - 1)  # limit range
         coords08x, inverse08x = torch.unique(coords08x, return_inverse=True, dim=0)
 
 
