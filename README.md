@@ -98,9 +98,9 @@ python test.py --cfg_file --cfg_file ./cfgs/kitti_models/voxset.yaml --ckpt ${CK
 ### Citation
 ```
 @inproceedings{he2022voxset,
-  title={Voxel Set Transformer: A Set-to-Set Approach to 3D Object Detection from Point Clouds},
-  author={Chenhang He, Ruihuang Li, Shuai Li and Lei Zhang},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-  year={2022}
+	title={Voxel Set Transformer: A Set-to-Set Approach to 3D Object Detection from Point Clouds},
+	author={He, Chenhang and Li, Ruihuang and Li, Shuai and Zhang, Lei},
+	booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+	year={2022}
 }
 ```
